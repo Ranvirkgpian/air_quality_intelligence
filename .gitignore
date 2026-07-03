@@ -1,1 +1,25 @@
+# Environment files — NEVER commit these
+.env
+backend/.env
+frontend/.env
+frontend/.env.local
 
+# Python
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.pyc
+backend/.pytest_cache/
+*.egg-info/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+notebooks/.ipynb_checkpoints/
