@@ -57,7 +57,8 @@ export default function ForecastPanel({ stationId, stationName, stationLat, stat
     const lng = stationLng || 77.5946
     const aqi = currentAqi || 120
 
-    fetch(`http://localhost:8000/aqi/forecast/${stationId}?hours=72&lat=${lat}&lng=${lng}&current_aqi=${aqi}`)
+    const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"
+    fetch(`${API_BASE}/aqi/forecast/${stationId}?hours=72&lat=${lat}&lng=${lng}&current_aqi=${aqi}`)
       .then(r => r.json())
       .then(r => {
         setData(r.data || [])
