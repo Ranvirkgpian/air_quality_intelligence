@@ -83,7 +83,8 @@ export default function LocationSelector({ onSearch, searching }) {
     setLoadingStates(true)
 
     // PROXY FETCH: This points directly to your working FastAPI server!
-    fetch(`http://127.0.0.1:8000/aqi/cities?country_code=${selectedCountry.code}`)
+    const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"
+    fetch(`${API_BASE}/aqi/cities?country_code=${selectedCountry.code}`)
       .then(async r => {
         if (!r.ok) {
            const errText = await r.text();
